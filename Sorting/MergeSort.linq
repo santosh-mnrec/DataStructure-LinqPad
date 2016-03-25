@@ -1,62 +1,49 @@
 <Query Kind="Program" />
 
+
 void Main()
 {
-	var a = new[] { -1, 1, 2, -43, 44, 22};
-	MergeSort2(a);
-	a.Dump();
-}
-static void MergeSort2(int[] arr)
-{
-  int[] helper=new int[arr.Length];
-  MergeSort(arr,helper,0,arr.Length-1);
-  arr.Dump();
-}
+	int[] arr = new[] { 11, 1, 2, 1212, -1, 9, -99999 };
+	SortMerge(arr, 0, 6);
+	arr.Dump();
 
-static void MergeSort(int[] arr, int[] helper, int low, int high)
+}
+static public void SortMerge(int[] numbers, int left, int right)
 {
-	if (low < high)
+	int mid;
+	int[] temp = new int[numbers.Length];
+
+	if (right > left)
 	{
-		int mid = (low + high) / 2;
-		MergeSort(arr, helper, low, mid);
-		MergeSort(arr, helper, mid + 1, high);
-		Merge(arr, helper, low, mid, high);
+		mid = (right + left) / 2;
+		SortMerge(numbers, left, mid);
+		SortMerge(numbers, (mid + 1), right);
+
+		Merge(numbers, temp, left, mid, mid + 1, right);
 	}
-
 }
-public static void Merge(int[] arr, int[] helper, int low, int mid, int high)
+static void Merge(int[] arr, int[] temp, int leftStart, int leftEnd, int rightStart, int rightEnd)
 {
-	for (int i = low; i <= high; i++)
-	{
-		helper[i] = arr[i];
-	}
-	int left = low;
-	int right = mid + 1;
-	int current = low;
-	while (left < mid && right <= high)
-	{
+	int i = leftStart;
+	int j = rightStart;
+	int k = leftStart;
 
-		if (helper[left] <= helper[right])
-		{
-			arr[current] = helper[left];
-			left++;
-		}
+	while (i <= leftEnd && j <= rightEnd)
+	{
+		if (arr[i] < arr[j])
+			temp[k++] = arr[i++];
 		else
-		{
-			arr[current]=helper[right];
-			right++;
-		}
-		current++;
-
-
+			temp[k++] = arr[j++];
 	}
-	//Copy reman
-	
-	int remaining=mid-left;
-	
-	for (int i = 0; i <=remaining; i++)
+	while (i <= leftEnd)
 	{
-		arr[current+1]=helper[left+i];
+		temp[k++] = arr[i++];
 	}
+	while (j <= rightEnd)
+		temp[k++] = arr[j++];
+	for (i = leftStart; i <= rightEnd; i++)
+		arr[i] = temp[i];
 
 }
+
+// Define other methods and classes here

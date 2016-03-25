@@ -2,7 +2,8 @@
 
 void Main()
 {
-	var arr = RandomList(10).ToArray();
+	var arr = RandomList(100).ToArray();
+	
 //	var arr = new[] { 1, -1, 2, -2, -2 };
 
 
@@ -11,6 +12,7 @@ void Main()
 	Console.WriteLine("After Sorting");
 	QuickSort(arr, 0, arr.Length - 1);
 	Print(arr);
+	
 }
 static List<int> RandomList(int size)
 {

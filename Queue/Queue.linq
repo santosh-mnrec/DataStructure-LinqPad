@@ -7,11 +7,12 @@ void Main()
 	q.Enqueue(2);
 	q.Enqueue(3);
 	q.Dequeue();
-	q.Dequeue(); q.Dequeue();
-	q.Dequeue(); q.Dequeue();
-	q.Dequeue(); q.Dequeue();
+	q.Dequeue(); 
+	q.Dequeue(); 
+	q.Dequeue(); 
 	q.Dequeue();
-	q.Enqueue(3); q.Enqueue(3);q.Enqueue(3);q.Enqueue(3);q.Enqueue(3);q.Enqueue(3);
+	q.Dequeue();
+	
 	q.Display();
 }
 

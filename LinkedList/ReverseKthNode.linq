@@ -54,6 +54,7 @@ void Main()
 	node.Next = new Node(20);
 	node.Next.Next = new Node(30);
 	node.Next.Next.Next = new Node(40);
-	node.Reverse(node, 2);
+	var reversed = node.Reverse(node, 2);
+	Console.WriteLine(reversed);
 
 }

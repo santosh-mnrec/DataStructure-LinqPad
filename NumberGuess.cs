@@ -14,6 +14,6 @@ public static void Main(String[] args)
 		Console.WriteLine("Your guess? ");
 		guess = Convert.ToInt32(Console.ReadLine());
 	}
-	if (guess == 0) Console.WriteLine("Sorry, answer is %d\n", answer);
+	if (guess == 0) Console.WriteLine("Sorry, answer is {0}\n", answer);
               else Console.WriteLine("Congratulations, you've got it!\n");
 } //end main

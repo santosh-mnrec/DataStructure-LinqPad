@@ -4,46 +4,35 @@
 void Main()
 {
 	int[] arr = new[] { 11, 1, 2, 1212, -1, 9, -99999 };
-	SortMerge(arr, 0, 6);
+	MergeSort(arr, 0, 6);
 	arr.Dump();
 
 }
-static public void SortMerge(int[] numbers, int left, int right)
+public void MergeSort(int[] A, int lo, int hi)
 {
-	int mid;
-	int[] temp = new int[numbers.Length];
-
-	if (right > left)
-	{
-		mid = (right + left) / 2;
-		SortMerge(numbers, left, mid);
-		SortMerge(numbers, (mid + 1), right);
-
-		Merge(numbers, temp, left, mid, mid + 1, right);
+	if (lo < hi)
+	{ //list contains at least 2 elements
+		int mid = (lo + hi) / 2; //get the mid-point subscript
+		MergeSort(A, lo, mid); //sort first half
+		MergeSort(A, mid + 1, hi); //sort second half
+		Merge(A, lo, mid, hi); //merge sorted halves
 	}
-}
-static void Merge(int[] arr, int[] temp, int leftStart, int leftEnd, int rightStart, int rightEnd)
+} //end mergeSort
+public void Merge(int[] A, int lo, int mid, int hi)
 {
-	int i = leftStart;
-	int j = rightStart;
-	int k = leftStart;
-
-	while (i <= leftEnd && j <= rightEnd)
+	//A[lo..mid] and A[mid+1..hi] are sorted;
+	//merge the pieces so that A[lo..hi] are sorted
+	int[] T = new int[hi - lo + 1];
+	int i = lo, j = mid + 1;
+	int k = 0;
+	while (i <= mid || j <= hi)
 	{
-		if (arr[i] < arr[j])
-			temp[k++] = arr[i++];
-		else
-			temp[k++] = arr[j++];
+		if (i > mid) T[k++] = A[j++];
+		else if (j > hi) T[k++] = A[i++];
+		else if (A[i] < A[j]) T[k++] = A[i++];
+		else T[k++] = A[j++];
 	}
-	while (i <= leftEnd)
-	{
-		temp[k++] = arr[i++];
-	}
-	while (j <= rightEnd)
-		temp[k++] = arr[j++];
-	for (i = leftStart; i <= rightEnd; i++)
-		arr[i] = temp[i];
-
-}
-
-// Define other methods and classes here
+	for (j = 0; j < hi - lo + 1; j++) A[lo + j] = T[j];
+} //end merge
+ 
+        

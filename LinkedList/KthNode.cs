@@ -47,7 +47,7 @@ public class List
 	//printf("%d", temp->data);
 	//
 	//return;
-
+-
 	public void KthFromEnd(int n)
 	{
 		List current = this;

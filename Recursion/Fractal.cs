@@ -1,16 +1,3 @@
-<Query Kind="Program">
-  <Reference>&lt;RuntimeDirectory&gt;\System.Windows.Forms.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.Security.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.Configuration.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\Accessibility.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.Deployment.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.Runtime.Serialization.Formatters.Soap.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.Numerics.dll</Reference>
-  <Namespace>System.Windows.Forms</Namespace>
-  <Namespace>System.Numerics</Namespace>
-  <Namespace>System.Drawing</Namespace>
-  <Namespace>System.Threading.Tasks</Namespace>
-</Query>
 
 /* Idea and clojure from http://nakkaya.com/2010/04/20/fractals-in-clojure-newton-fractal */
 //Func<Complex, Complex> f1 = c => (c * c * c) - Complex.One;

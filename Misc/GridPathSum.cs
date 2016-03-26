@@ -1,4 +1,4 @@
-<Query Kind="Program" />
+
 
 /*
 Minimum Path Sum

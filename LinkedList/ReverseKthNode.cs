@@ -1,4 +1,3 @@
-<Query Kind="Program" />
 
 public class Node
 {

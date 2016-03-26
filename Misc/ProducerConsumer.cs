@@ -1,4 +1,4 @@
-<Query Kind="Program" />
+
 
 static ProducerConsumer queue;
 void Main()
